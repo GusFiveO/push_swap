@@ -6,23 +6,36 @@
 /*   By: augustinlorain <augustinlorain@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:09:02 by augustinlor       #+#    #+#             */
-/*   Updated: 2022/01/30 15:09:05 by augustinlor      ###   ########.fr       */
+/*   Updated: 2022/01/31 16:03:46 by alorain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	define_median(t_list **stack_a, int	size)
+void	manage_tab(t_list **stack_a, int *tab, int size)
+{
+	int	i;
+
+	i = 0;
+	if (!tab)
+	{	
+		ft_lstclear(stack_a);
+		exit(0);
+	}
+	while (i < size)
+		tab[i++] = INT_MAX;
+}
+
+int	define_median(t_list **stack_a, int size)
 {
 	t_list	*temp;
-	int		tab[size];
+	int		*tab;
 	int		lower;
 	int		i;
 
 	i = 0;
-	while (i < size)
-		tab[i++] = INT_MAX;
-	i = 0;
+	tab = malloc(sizeof(int) * size);
+	manage_tab(stack_a, tab, size);
 	while (i < size)
 	{
 		lower = tab[i];
@@ -49,8 +62,9 @@ t_list	*define_cheapest_med(t_list **stack_a, int m)
 	while (temp)
 	{
 		cost = calculate_b_cost(stack_a, temp);
-		if ((!cheapest && temp->content < m ) ||
-				(temp->content < m && calculate_b_cost(stack_a, cheapest) > cost))
+		if ((!cheapest && temp->content < m)
+			|| (temp->content < m
+				&& calculate_b_cost(stack_a, cheapest) > cost))
 			cheapest = temp;
 		temp = temp->next;
 	}

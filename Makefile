@@ -3,7 +3,7 @@ SRC_DIR = src/
 OBJ_DIR = bin/
 LIBFT_DIR = libft/
                                                                                                                           
-SRCS = main.c utils.c parse_args.c operation.c operation2.c sort.c cost.c ops.c median.c
+SRCS = main.c utils.c utils2.c parse_args.c operation.c operation2.c sort.c cost.c ops.c median.c lil_sort.c
 OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
 
 NAME = push_swap

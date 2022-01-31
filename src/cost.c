@@ -6,7 +6,7 @@
 /*   By: alorain <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 14:50:04 by alorain           #+#    #+#             */
-/*   Updated: 2022/01/29 18:53:25 by alorain          ###   ########.fr       */
+/*   Updated: 2022/01/31 16:19:20 by alorain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ t_list	*find_closest(t_list **stack, t_list *elem)
 {
 	t_list	*temp;
 	t_list	*closest;
-	int		value;
 	int		highest;
 	int		lowest;
 
@@ -30,13 +29,12 @@ t_list	*find_closest(t_list **stack, t_list *elem)
 		return (closest);
 	}
 	temp = *stack;
-
 	while (closest->content - elem->content < 0)
 		closest = closest->next;
 	while (temp)
 	{
-		value = temp->content - elem->content;
-		if (value > 0 && value < closest->content - elem->content)
+		if (temp->content - elem->content > 0
+			&& temp->content - elem->content < closest->content - elem->content)
 			closest = temp;
 		temp = temp->next;
 	}
@@ -52,7 +50,7 @@ int	calculate_b_cost(t_list **stack_b, t_list *elem)
 	if (!stack_b)
 		return (0);
 	op = 0;
-	idx= ft_lstidx(elem->content, stack_b);
+	idx = ft_lstidx(elem->content, stack_b);
 	size = ft_lstsize(*stack_b);
 	if (idx > size / 2)
 		op = size - idx;
@@ -79,7 +77,6 @@ int	calculate_a_cost(t_list **stack_a, t_list *elem)
 		op = idx;
 	return (op);
 }
-
 
 int	calculate_cost(t_list **stack_a, t_list **stack_b, t_list *elem)
 {
