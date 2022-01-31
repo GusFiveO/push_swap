@@ -6,7 +6,7 @@
 /*   By: alorain <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 14:50:04 by alorain           #+#    #+#             */
-/*   Updated: 2022/01/31 16:19:20 by alorain          ###   ########.fr       */
+/*   Updated: 2022/01/31 18:45:30 by alorain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*find_closest(t_list **stack, t_list *elem)
 {
 	t_list	*temp;
 	t_list	*closest;
-	int		highest;
+	long	highest;
 	int		lowest;
 
 	highest = define_highest(stack);
@@ -29,12 +29,12 @@ t_list	*find_closest(t_list **stack, t_list *elem)
 		return (closest);
 	}
 	temp = *stack;
-	while (closest->content - elem->content < 0)
+	while ((long)closest->content - (long)elem->content < 0)
 		closest = closest->next;
 	while (temp)
 	{
-		if (temp->content - elem->content > 0
-			&& temp->content - elem->content < closest->content - elem->content)
+		highest = temp->content - elem->content;
+		if (highest > 0 && highest < closest->content - elem->content)
 			closest = temp;
 		temp = temp->next;
 	}

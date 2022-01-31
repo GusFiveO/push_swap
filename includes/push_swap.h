@@ -6,7 +6,7 @@
 /*   By: alorain <alorain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 15:18:21 by alorain           #+#    #+#             */
-/*   Updated: 2022/01/31 16:17:11 by alorain          ###   ########.fr       */
+/*   Updated: 2022/01/31 18:28:10 by alorain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ t_list	*find_closest(t_list **stack, t_list *elem);
 
 /*-----ops.c-----*/
 
+void	execute_ops(t_list **stack_a, t_list **stack_b, t_op op);
 t_op	calculate_op(t_list **stack_a, t_list **stack_b, t_list *cheapest);
 
 /*-----operation.c-----*/

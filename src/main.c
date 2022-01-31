@@ -6,7 +6,7 @@
 /*   By: alorain <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 11:02:19 by alorain           #+#    #+#             */
-/*   Updated: 2022/01/31 16:06:59 by alorain          ###   ########.fr       */
+/*   Updated: 2022/01/31 18:43:58 by alorain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ int	main(int argc, char **argv)
 		ft_lstclear(&stack_a);
 		return (0);
 	}
-	ft_printf("\n");
 	return (-1);
 }

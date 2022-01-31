@@ -6,7 +6,7 @@
 /*   By: alorain <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:02:16 by alorain           #+#    #+#             */
-/*   Updated: 2022/01/31 15:19:05 by alorain          ###   ########.fr       */
+/*   Updated: 2022/01/31 18:41:22 by alorain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,10 @@ int	is_sorted(t_list **stack)
 
 void	lil_sort(t_list **stack_a, t_list **stack_b, int argc)
 {
+	if (argc <= 3)
+		return ;
 	if (argc == 4)
 		sort_3(stack_a);
-	else if (argc == 6)
+	else if (argc <= 6)
 		sort_5(stack_a, stack_b);
 }

@@ -6,7 +6,7 @@
 /*   By: augustinlorain <augustinlorain@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:09:02 by augustinlor       #+#    #+#             */
-/*   Updated: 2022/01/31 16:03:46 by alorain          ###   ########.fr       */
+/*   Updated: 2022/01/31 16:45:31 by alorain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ int	define_median(t_list **stack_a, int size)
 	int		*tab;
 	int		lower;
 	int		i;
+	int		m;
 
 	i = 0;
+	m = 0;
 	tab = malloc(sizeof(int) * size);
 	manage_tab(stack_a, tab, size);
 	while (i < size)
@@ -48,7 +50,9 @@ int	define_median(t_list **stack_a, int size)
 		}
 		tab[i++] = lower;
 	}
-	return (tab[size / 2]);
+	m = tab[size / 2];
+	free(tab);
+	return (m);
 }
 
 t_list	*define_cheapest_med(t_list **stack_a, int m)
